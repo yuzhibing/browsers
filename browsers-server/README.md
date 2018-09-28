@@ -1,15 +1,15 @@
-git clone https://git-lab.madailicai.com/bc-ulord/bc-browsers.git
 
 
+### python
 
 pip install -r requirements.txt
 
 
 ### UI
-
+    npm install yarn -g
     yarn install
     yarn run build
-    
+    webpack.dev.config.js //修改server ip
 ### 数据库脚本
     sql/ut.sql
 
