@@ -1,0 +1,23 @@
+1.同步数据
+    a.每10分钟查询区块当前高度并且查询本地数据库高度，比较高度同步新高度数据至数据库
+    b.根据blockId查找blockHash,通过blockHash查找block数据，解析transaction中的vin和vout数据
+    c.区块数据保存至ud_block表中，vout数据保存至ud_transaction_recods_vout表中，vin数据保存ud_transaction_recods_vin中
+    d.解析发生变化的address保存至ud_transaction_recods_address，更新Address Details
+    e.每10分钟统计一次大账户地址、账户数量、活跃地址保存至ud_trans_address
+
+2.大单监控
+    a.查询当前时间之前24小时内vout,vin发生大于500交易数据
+    b.对交易大于500的交易数据，多对数处理后生成24小时转入转出图
+    c.对交易大于500的交易数据,按时间从大到小排序，展示24小时转入转出列表
+3.用户地址监控
+    a.查询大账户近90天的大账户地址数据
+    b.查询近90天的账户数据统计
+    c.查询近90天的活跃账户数
+4.交易速度
+    a.对块中交易进行统计，计算当前交易速度,去掉找vout和矿工奖励vout,一个块中包含的多有vout为N，M/min为出块速度，交易数度=N*M/min
+    b.出块速度=576/(24*60)=0.4
+    c.根据小时、天，周，月统计交易数度生成图形
+5.价格走势
+    a.每10分钟爬去一次LBank，Kucoin，BBX，topbtc的ut价格
+    b.根据交易所数据，多个交易所加权平均。例：(交易所1+交易所N)/交易所N=当前UT价格
+    c.根据时间查询一天或一周内的加权平均价格为当前UT价格生成图形
