@@ -14,7 +14,7 @@ futures==3.2.0
 idna==2.7
 imagesize==1.0.0
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 kombu==4.2.1
 linecache2==1.0.0
 Manager==2.0.5
