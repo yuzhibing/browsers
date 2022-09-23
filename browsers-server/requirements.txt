@@ -24,7 +24,7 @@ mysql-connector-python==8.0.11
 Oncilla==0.1.0
 order==0.1.17
 packaging==17.1
-protobuf==3.6.0
+protobuf==3.18.3
 py-mysql==1.0
 Pygments==2.2.0
 pyparsing==2.2.0
